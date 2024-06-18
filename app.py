@@ -1,5 +1,4 @@
 from tabpy.tabpy_server.app.app import TabPyApp
-import threading
 import os
 
 def modify_config_file(port):
@@ -27,7 +26,4 @@ def start_tabpy_server():
     app.run()
 
 if __name__ == '__main__':
-    # Start TabPy server in a separate thread
-    tabpy_thread = threading.Thread(target=start_tabpy_server)
-    tabpy_thread.start()
-    tabpy_thread.join()  # Ensures the main thread waits for the server thread
+    start_tabpy_server()
